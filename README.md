@@ -1,5 +1,5 @@
 # Game Time Decision
-Find new games based on your favorite category, number of players or for those with no prefernce just a random game.
+Find new games based on your favorite category, number of players or new games game.
 
 ## Tech list
 <li> IGDB API </li>

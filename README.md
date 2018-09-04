@@ -2,8 +2,8 @@
 Find new games based on your favorite category, number of players or for those with no prefernce just a random game.
 
 ## Tech list
-IGDB API
-CSS grid
+<li> IGDB API </li>
+<li> CSS grid </li>
 
 ## Timeline
 wednesday noon: have backend done with dummy data

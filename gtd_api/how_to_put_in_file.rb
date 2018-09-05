@@ -15,3 +15,7 @@ end
 File.open("second_half.txt","w") do |test|
 test.puts second_half
 end
+
+File.open("db/platforms_data.txt","w") do |test|
+test.puts platforms
+end

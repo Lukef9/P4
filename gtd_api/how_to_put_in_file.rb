@@ -19,3 +19,7 @@ end
 File.open("db/platforms_data.txt","w") do |test|
 test.puts platforms
 end
+
+File.open("db/categories_data.txt","w") do |test|
+  test.puts categories
+  end

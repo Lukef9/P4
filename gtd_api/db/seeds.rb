@@ -22,11 +22,78 @@
 # end
 
 require 'httparty'
-require './first_half.rb'
-require './second_half.rb'
-require './platforms_data.rb'
+# require './db/first_half.rb'
+# require './db/second_half.rb'
+# # require './db/platforms_data.rb'
+# # require './db/categories_data.rb'
+# # require './db/game_modes_data.rb'
 
 
 
+# # $first_half.each do |game_data|
+# #   Game.create!(
+# #     game_id: game_data['id'],
+# #     game_name: game_data['name'],
+# #     rating: game_data['rating']
+# #   )
+# # end
 
-puts $game_data[1]
+# $second_half.each do |game_data|
+#   Game.create!(
+#     game_id: game_data['id'],
+#     game_name: game_data['name'],
+#     rating: game_data['rating']
+#   )
+# end
+  Game.create!(
+    game_id: 1,
+    game_name: 'testgame1',
+    rating: 10
+  )
+  Game.create!(
+    game_id: 2,
+    game_name: 'testgame2',
+    rating: 20
+  )
+  Game.create!(
+    game_id: 3,
+    game_name: 'testgame3',
+    rating: 30
+  )
+
+# $categories_data.each do |category_data|
+#   Category.create!(
+#     category_id: category_data['id'],
+#     category_name: category_data['name'],
+#   )
+# end
+
+# $platforms_data.each do |platform_data|
+#   Platform.create!(
+#     platform_id: platform_data['id'],
+#     platform_name: platform_data['name'],
+#   )
+# end
+
+# $game_modes_data.each do |game_mode_data|
+#   GameMode.create!(
+#     game_mode_id: game_mode_data['id'],
+#     game_mode_name: game_mode_data['name'],
+#   )
+# end
+
+# games_data.each do |game_data|
+#     puts game_data['id']
+# end
+
+# $categories_data.each do |category_data|
+#     puts category_data['id']
+# end
+
+# $platforms_data.each do |platform_data|
+#     puts platform_data['id']
+# end
+
+# $game_modes_data.each do |game_mode_data|
+#     puts game_mode_data['id']
+# end

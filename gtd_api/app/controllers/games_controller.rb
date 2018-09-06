@@ -41,8 +41,6 @@ class GamesController < ApplicationController
       .permit(
         :game_id,
         :game_name,
-        :min_players,
-        :max_players,
         :rating
       )
   end

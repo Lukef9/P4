@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :games
   resources :platforms
   resources :categories
+  resources :game_modes
 end

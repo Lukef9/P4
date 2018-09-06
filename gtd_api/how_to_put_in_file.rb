@@ -24,8 +24,12 @@ File.open("db/categories_data.txt","w") do |test|
   test.puts categories
 end
 
-categories = HTTParty.get('https://api-2445582011268.apicast.io/genres/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50',
+File.open("db/game_modes_data.txt","w") do |test|
+  test.puts game_modes
+end
+
+game_modes = HTTParty.get('https://api-2445582011268.apicast.io/game_modes/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50',
   headers:  {
-    "user-key": 'my key',
+    "user-key": '13bc7945b3fcd58f0f9a272f80b50bc8',
     Accept: 'application/json'
 })

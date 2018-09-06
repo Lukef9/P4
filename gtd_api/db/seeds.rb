@@ -12,7 +12,7 @@
 #    word =  (i+1.. i+1000).to_a.join(",")
 #    resp = HTTParty.get("https://api-endpoint.igdb.com/games/"+word,
 #      headers:  {
-#        "user-key": 'mykey',
+#        "user-key": '13bc7945b3fcd58f0f9a272f80b50bc8',
 #        Accept: 'application/json'
 #      })
 #    total = total + resp

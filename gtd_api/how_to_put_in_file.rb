@@ -8,8 +8,12 @@ second_half = []
 second_half.push(total[x+40000])
 end
 
-File.open("first_half.txt","w") do |test|
-test.puts first_half
+File.open("first_part.txt","w") do |test|
+test.write 
+end
+
+File.open("third_part.rb","w") do |test|
+test.write (third_part.to_json)
 end
 
 File.open("second_half.txt","w") do |test|
@@ -33,3 +37,27 @@ game_modes = HTTParty.get('https://api-2445582011268.apicast.io/game_modes/1,2,3
     "user-key": '13bc7945b3fcd58f0f9a272f80b50bc8',
     Accept: 'application/json'
 })
+
+
+part = []
+42.times do |x|
+  part.push([])
+end
+
+42.times do |i|
+  2500.times do |x|
+    part[i].push(total[x+(i*2500)])
+  end
+end
+
+part.push([])
+1486.times do |x|
+part.last.push(total[x+105000])
+end
+
+43.times do |x|
+  File.open("db/game_data/game_part#{x}.rb","w") do |test|
+    test.write (part[x].to_json)
+  end
+end
+

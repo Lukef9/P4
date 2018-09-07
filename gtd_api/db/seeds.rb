@@ -22,9 +22,9 @@
 # end
 
 # require 'httparty'
-# require './db/platforms_data.rb'
-# require './db/categories_data.rb'
-# require './db/game_modes_data.rb'
+require './db/platforms_data.rb'
+require './db/categories_data.rb'
+require './db/game_modes_data.rb'
 require './db/game_data/game_part0.rb'
 require './db/game_data/game_part1.rb'
 require './db/game_data/game_part2.rb'
@@ -72,387 +72,371 @@ require './db/game_data/game_part42.rb'
 
 $game_part0.each do |game_data|
   Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
+    game_id: game_data[:id],
+    game_name: game_data[:name],
+    rating: game_data[:rating]
   )
 end
 
-$game_part1.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part2.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part3.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part4.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part5.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part6.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part7.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part8.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part9.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part10.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part11.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part12.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part13.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part14.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part15.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part16.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part17.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part18.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part19.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part20.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part21.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part22.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part23.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part24.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part25.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part26.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part27.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part28.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part29.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part30.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part31.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part32.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part33.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part34.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-game_part35.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part36.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part37.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part38.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part39.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part40.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part41.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-$game_part42.each do |game_data|
-  Game.create!(
-    game_id: game_data['id'],
-    game_name: game_data['name'],
-    rating: game_data['rating']
-  )
-end
-
-  # Game.create!(
-  #   game_id: 1,
-  #   game_name: 'testgame1',
-  #   rating: 10
-  # )
-  # Game.create!(
-  #   game_id: 2,
-  #   game_name: 'testgame2',
-  #   rating: 20
-  # )
-  # Game.create!(
-  #   game_id: 3,
-  #   game_name: 'testgame3',
-  #   rating: 30
-  # )
-
-# $categories_data.each do |category_data|
-#   Category.create!(
-#     category_id: category_data['id'],
-#     category_name: category_data['name'],
+# $game_part1.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
 #   )
 # end
 
-# $platforms_data.each do |platform_data|
-#   Platform.create!(
-#     platform_id: platform_data['id'],
-#     platform_name: platform_data['name'],
+# $game_part2.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
 #   )
 # end
 
-# $game_modes_data.each do |game_mode_data|
-#   GameMode.create!(
-#     game_mode_id: game_mode_data['id'],
-#     game_mode_name: game_mode_data['name'],
+# $game_part3.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
 #   )
 # end
+
+# $game_part4.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part5.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part6.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part7.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part8.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part9.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part10.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part11.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part12.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part13.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part14.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part15.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part16.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part17.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part18.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part19.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part20.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part21.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part22.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part23.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part24.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part25.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part26.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part27.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part28.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part29.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part30.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part31.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part32.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part33.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part34.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part35.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part36.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part37.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part38.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part39.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part40.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part41.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+# $game_part42.each do |game_data|
+#   Game.create!(
+#     game_id: game_data[:id],
+#     game_name: game_data[:name],
+#     rating: game_data[:rating]
+#   )
+# end
+
+$categories_data.each do |category_data|
+  Category.create!(
+    category_id: category_data['id'],
+    category_name: category_data['name'],
+  )
+end
+
+$platforms_data.each do |platform_data|
+  Platform.create!(
+    platform_id: platform_data['id'],
+    platform_name: platform_data['name'],
+  )
+end
+
+$game_modes_data.each do |game_mode_data|
+  GameMode.create!(
+    game_mode_id: game_mode_data['id'],
+    game_mode_name: game_mode_data['name'],
+  )
+end
 
 # games_data.each do |game_data|
-#     puts game_data['id']
+#     puts game_data[:id]
 # end
 
 # $categories_data.each do |category_data|

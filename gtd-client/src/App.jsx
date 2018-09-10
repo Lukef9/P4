@@ -5,6 +5,10 @@ import {
   fetchAllCategories,
   fetchAllGameModes,
   fetchAllUsers,
+  fetchOneUser,
+  destroyUser,
+  updateUser,
+  saveUser
 } from './services/api';
 import './App.css';
 
@@ -42,6 +46,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+          
+          
+          {  
+            this.state.games.map((game) => (
+              <div >
+                {game.game_name}
+              </div>
+            ))
+          }
         {this.state.games.length>0 ? this.state.games[0].game_name : ''}
       </div>
     );

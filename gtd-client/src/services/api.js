@@ -46,3 +46,58 @@ export async function fetchAllUsers() {
       }
 }
 
+export async function fetchOneUser(id) {
+  try {
+      const users = await fetch(`${BASE_URL}/users/${id}`);
+      return users.json();
+    } catch (e) {
+      throw (e);
+    }
+}
+
+export async function saveUser(user) {
+  try {
+    const opts = {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const userData = await fetch(`${BASE_URL}/users`, opts);
+    return userData.json();
+  } catch (e) {
+    throw (e);
+  }
+}
+
+export async function updateUser(user) {
+  try {
+    const opts = {
+      method: 'PUT',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const userData = await fetch(`${BASE_URL}/users/${user.user_id}`, opts);
+    return userData.json();
+  } catch (e) {
+    throw (e);
+  }
+}
+
+export async function destroyUser(id) {
+  try {
+    const opts = {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const user = await fetch(`${BASE_URL}/users/${id}`, opts);
+    return user;
+  } catch (e) {
+    throw (e);
+  }
+}

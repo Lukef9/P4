@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000';// process.env.REACT_APP_BASE_URL
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 // get all functions
 export async function fetchAllGames() {
@@ -12,8 +12,19 @@ export async function fetchAllGames() {
 
 export async function fetchAllPlatforms() {
     try {
-        const platforms = await fetch(`${BASE_URL}/platforms`);
+        const platforms = await fetch(`${BASE_URL}/platforms/`);
         return platforms.json();
+      } catch (e) {
+        throw (e);
+      }
+}
+
+export async function fetchAllGamesOnOnePlatform(id) {
+    try {
+      console.log('hello')
+        const games = await fetch(`${BASE_URL}/platforms/${id}/games`);
+        console.log('hi')
+        return games.json();
       } catch (e) {
         throw (e);
       }

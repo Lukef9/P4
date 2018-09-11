@@ -1,11 +1,20 @@
 class GamesController < ApplicationController
   def index
-    render json: { games: Game.all }
+    if (params[:platform_id])
+      @games = Platform.find(params[:platform_id]).games
+    elsif (params[:category_id])
+      @games = Category.find(params[:category_id]).games
+    elsif (params[:game_mode_id])
+      @games = GameMode.find(params[:game_mode_id]).games
+    else
+      @games = Game.all
+    end
+    render json: { games: @games}, :include => {:platforms => {}, :game_modes => {} , :categories => {}}
   end
 
   def show
     @game1 = Game.find(params[:id])
-    render json: { game: @game1 }
+    render json: { game: @game1 }, :include => {:platforms => {}, :game_modes => {} , :categories => {}}
   end
 
   def create

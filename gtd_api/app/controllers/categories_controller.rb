@@ -1,11 +1,12 @@
 class CategoriesController < ApplicationController
   def index
-    render json: { categories: Category.all }
+    render json: { categories: Category.take(10) }, :include => {:games => {
+      :include => [:game_modes, :platforms ]}}
   end
 
   def show
     @category1 = Category.find(params[:id])
-    render json: { category: @category1 }
+    render json: { category: @category1 }, :include => {:games => {:incude => {:game_modes => {}, :platforms => {}}}}
   end
 
   def create

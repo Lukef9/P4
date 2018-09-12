@@ -9,12 +9,12 @@ class GamesController < ApplicationController
     else
       @games = Game.all
     end
-    render json: { games: @games}, :include => {:platforms => {}, :game_modes => {} , :categories => {}}
+    render json: { games: @games}, :include => {:game_modes => {}, :platforms => {}, :categories => {}}
   end
 
   def show
     @game1 = Game.find(params[:id])
-    render json: { game: @game1 }, :include => {:platforms => {}, :game_modes => {} , :categories => {}}
+    render json: { game: @game1 }, :include => {:game_modes => {}, :platforms => {},  :categories => {}}
   end
 
   def create

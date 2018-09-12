@@ -1,11 +1,11 @@
 class GameModesController < ApplicationController
   def index
-    render json: { game_modes: GameMode.all }, :include => {:games => {:includes => {:platforms => {}, :categories => {}}}}
+    render json: { game_modes: GameMode.all }, :include => {:games => {}}
   end
 
   def show
     @game_mode1 = GameMode.find(params[:id])
-    render json: { game_mode: @game_mode1 }, :include => {:games => {:includes => {:platforms => {}, :categories => {}}}}
+    render json: { game_mode: @game_mode1 }, :include => {:games => {}}
   end
 
   def create

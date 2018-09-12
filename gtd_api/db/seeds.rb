@@ -54,11 +54,13 @@ require './db/game_data/game_part0.rb'
 # require './db/game_data/game_part42.rb'
 
 $game_part0.each do |game_data|
-  Game.create!(
-    game_id: game_data[:id],
-    game_name: game_data[:name],
-    rating: game_data[:rating]
-  )
+  if (game_data[:id] <= 100)
+    Game.create!(
+      game_id: game_data[:id],
+      game_name: game_data[:name],
+      rating: game_data[:rating]
+    )
+  end
 end
 
 # $game_part1.each do |game_data|
@@ -434,7 +436,10 @@ GameMode.create!(
   )
 
 plat_arr = []
-$game_part0.length.times do |x|
+# $game_part0.length.times do |x|
+#   plat_arr.push$game_part0[x][:platforms]
+# end
+100.times do |x|
   plat_arr.push$game_part0[x][:platforms]
 end
 
@@ -449,7 +454,10 @@ plat_arr.length.times do |game_plats_id|
 end
 
 cat_arr = []
-$game_part0.length.times do |x|
+# $game_part0.length.times do |x|
+#   cat_arr.push$game_part0[x][:genres]
+# end
+100.times do |x|
   cat_arr.push$game_part0[x][:genres]
 end
 
@@ -464,7 +472,10 @@ cat_arr.length.times do |game_cats_id|
 end
 
 gm_arr = []
-$game_part0.length.times do |x|
+# $game_part0.length.times do |x|
+#   gm_arr.push$game_part0[x][:game_modes]
+# end
+100.times do |x|
   gm_arr.push$game_part0[x][:game_modes]
 end
 

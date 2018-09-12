@@ -12,6 +12,8 @@ import {
   fetchAllGamesOnOnePlatform
 } from './services/api';
 import './App.css';
+import GamesByCat from './GamesByCat';
+import GamesByPlat from './GamesByPlat';
 
 class App extends Component {
   constructor(props) {
@@ -24,40 +26,31 @@ class App extends Component {
       users: [],
       platformGames: [],
     }
+    this.addGameModes = this.addGameModes.bind(this);
+    this.addPlatforms = this.addPlatforms.bind(this);
+    this.addCategories = this.addCategories.bind(this);
   }
-  // might breack everything
-  getGamesforOnePlatform() {
-    let platGames = []
-    console.log('here')
-    this.state.platforms.map((platform) => {
-      console.log('there')
-      this.getAllGamesOnOnePlatform(platform.id)
-        .then(data => platGames.push({data: data, name: platform.platform_name}))
-        .then(data => this.setState({ platformGames: platGames}))
-    })
-  }
-//end
+
   componentDidMount() {
     fetchAllGames().then(data => {
       this.setState({ games:  data.games });
-    })
+    }).then(() => 
 
     fetchAllPlatforms().then(data => {
       this.setState({ platforms:  data.platforms });
-    })
-    
+    })).then(()=> 
 
     fetchAllCategories().then(data => {
       this.setState({ categories:  data.categories });
-    })
+    })).then(()=> 
 
     fetchAllGameModes().then(data => {
       this.setState({ gameModes:  data.game_modes });
-    })
+    })).then(()=> 
 
     fetchAllUsers().then(data => {
       this.setState({ users:  data.users });
-    })
+    }))
   }
 
   getAllGamesOnOnePlatform(id) {
@@ -65,30 +58,32 @@ class App extends Component {
       return{ platformGames:  data.games };
     })
   }
+  addPlatforms(game) {
+    return (this.state.games.length >= 98 && game.id <100) ? `Platforms: ${this.state.games[game.id-1].platforms.map(plats => ` ` + plats.platform_name)}` : ''
+  }
+  addGameModes(game) {
+    return (this.state.games.length >= 98 && game.id <100) ? `Game Modes: ${this.state.games[game.id-1].game_modes.map(gms => ` ` + gms.game_mode_name)}` : ''
+  }
+  addCategories(game) {
+    return (this.state.games.length >= 98 && game.id <100) ? `Categories: ${this.state.games[game.id-1].categories.map(cats => ` ` + cats.category_name)}` : ''
+  }
 
   render() {
-    let test;
     
     return (
       <div className="App">
-            {
-            this.state.platformGames.map((platGames) => (
-              <div>
-                <h1>{platGames.name}</h1> <br/>
-                <div className='contain'>
-                {
-                  platGames.data.platformGames.map((game) => (
-                  <div className="grid-item">
-                    Title: {game.game_name}
-                    <br/>
-                    Rating: {game.rating}
-                  </div>
-                  ))
-                }
-                </div>
-              </div>
-            ))
-          }
+          <GamesByCat 
+          categories = {this.state.categories}
+          addGameModes = {this.addGameModes}
+          addPlatforms = {this.addPlatforms}
+          addCategories = {this.addCategories}
+          />
+          <GamesByPlat 
+          platforms = {this.state.platforms}
+          addGameModes = {this.addGameModes}
+          addPlatforms = {this.addPlatforms}
+          addCategories = {this.addCategories}
+          />
       </div>
     );
   }

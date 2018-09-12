@@ -1,11 +1,11 @@
 class PlatformsController < ApplicationController
   def index
-    render json: { platforms: Platform.all }, :include => {:games => {:include => {:game_modes => {}, :categories => {}}}}
+    render json: { platforms: Platform.all }, :include => {:games => {}}
   end
 
   def show
     @platform1 = Platform.find(params[:id])
-    render json: { platform: @platform1 }, :include => {:games => {:include => {:game_modes => {}, :categories => {}}}}
+    render json: { platform: @platform1 }, :include => {:games => {}}
   end
 
   def create

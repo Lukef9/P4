@@ -446,9 +446,11 @@ plat_arr = []
 end
 
 plat_arr.length.times do |game_plats_id|
-  if(plat_arr[game_plats_id] != nil)
+  if plat_arr[game_plats_id] != nil
     plat_arr[game_plats_id].each do |ind_plat_id|
-      Game.find(game_plats_id+1).platforms << Platform.where(platform_id: ind_plat_id)
+      if ind_plat_id <= 100 #limits to games with id <100
+        Game.find(game_plats_id+1).platforms << Platform.where(platform_id: ind_plat_id)
+      end
     end
   else
     Game.find(game_plats_id+1).platforms << Platform.where(platform_id: 0)
@@ -464,9 +466,11 @@ cat_arr = []
 end
 
 cat_arr.length.times do |game_cats_id|
-  if(cat_arr[game_cats_id] != nil)
+  if cat_arr[game_cats_id] != nil
     cat_arr[game_cats_id].each do |ind_cat_id|
-      Game.find(game_cats_id+1).categories << Category.where(category_id: ind_cat_id)
+      if ind_cat_id <= 100 #limits to games with id <100
+        Game.find(game_cats_id+1).categories << Category.where(category_id: ind_cat_id)
+      end
     end
   else
     Game.find(game_cats_id+1).categories << Category.where(category_id: 0)
@@ -484,7 +488,9 @@ end
 gm_arr.length.times do |game_gms_id|
   if (gm_arr[game_gms_id] != nil)
     gm_arr[game_gms_id].each do |ind_gm_id|
-      Game.find(game_gms_id+1).game_modes << GameMode.where(game_mode_id: ind_gm_id)
+      if ind_gm_id <= 100 #limits to games with id <100
+        Game.find(game_gms_id+1).game_modes << GameMode.where(game_mode_id: ind_gm_id)
+      end
     end
   else
     Game.find(game_gms_id+1).game_modes << GameMode.where(game_mode_id: 0)

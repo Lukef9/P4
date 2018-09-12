@@ -56,13 +56,14 @@ require './db/game_data/game_part0.rb'
 
 
 $game_part0.each do |game_data|
-  if (game_data[:id] <= 100)
+  if (game_data[:id] > 100)
+    next
+  end
     Game.create!(
       game_id: game_data[:id],
       game_name: game_data[:name],
       rating: game_data[:rating]
     )
-  end
 end
 
 # $game_part1.each do |game_data|

@@ -14,6 +14,8 @@ import {
 import './App.css';
 import GamesByCat from './GamesByCat';
 import GamesByPlat from './GamesByPlat';
+import GamesByGameMode from './GamesByGameMode';
+import Header from './Header';
 
 class App extends Component {
   constructor(props) {
@@ -24,11 +26,12 @@ class App extends Component {
       categories: [],
       gameModes: [],
       users: [],
-      platformGames: [],
+      currentPage: 'home',
     }
     this.addGameModes = this.addGameModes.bind(this);
     this.addPlatforms = this.addPlatforms.bind(this);
     this.addCategories = this.addCategories.bind(this);
+    this.toggleCurrentPage = this.toggleCurrentPage.bind(this);
   }
 
   componentDidMount() {
@@ -53,11 +56,6 @@ class App extends Component {
     }))
   }
 
-  getAllGamesOnOnePlatform(id) {
-    return fetchAllGamesOnOnePlatform(id).then(data => {
-      return{ platformGames:  data.games };
-    })
-  }
   addPlatforms(game) {
     return (this.state.games.length >= 98 && game.id <100) ? `Platforms: ${this.state.games[game.id-1].platforms.map(plats => ` ` + plats.platform_name)}` : ''
   }
@@ -68,22 +66,49 @@ class App extends Component {
     return (this.state.games.length >= 98 && game.id <100) ? `Categories: ${this.state.games[game.id-1].categories.map(cats => ` ` + cats.category_name)}` : ''
   }
 
+  choosePage() {
+    const { currentPage } = this.state;
+    switch (currentPage) {
+      case 'gameMode':
+        return <GamesByGameMode
+        gameModes = {this.state.gameModes}
+        addGameModes = {this.addGameModes}
+        addPlatforms = {this.addPlatforms}
+        addCategories = {this.addCategories}
+        />
+      case 'category':
+        return <GamesByCat 
+        categories = {this.state.categories}
+        addGameModes = {this.addGameModes}
+        addPlatforms = {this.addPlatforms}
+        addCategories = {this.addCategories}
+        />
+      case 'platform':
+        return <GamesByPlat 
+        platforms = {this.state.platforms}
+        addGameModes = {this.addGameModes}
+        addPlatforms = {this.addPlatforms}
+        addCategories = {this.addCategories}
+        />
+    }
+  }
+
+  toggleCurrentPage(evt) {
+    const name = evt.target.name;
+    this.setState((prevState) => {
+      prevState.currentPage = name;
+      return prevState;
+    });
+  }
+
   render() {
     
     return (
       <div className="App">
-          <GamesByCat 
-          categories = {this.state.categories}
-          addGameModes = {this.addGameModes}
-          addPlatforms = {this.addPlatforms}
-          addCategories = {this.addCategories}
-          />
-          <GamesByPlat 
-          platforms = {this.state.platforms}
-          addGameModes = {this.addGameModes}
-          addPlatforms = {this.addPlatforms}
-          addCategories = {this.addCategories}
-          />
+        <Header 
+        toggleCurrentPage = {this.toggleCurrentPage}
+        />
+        {this.choosePage()}
       </div>
     );
   }

@@ -5,22 +5,16 @@ Rails.application.routes.draw do
   end
   
   resources :categories do
-    resources :games do
-      resources :platforms, :game_modes
-    end
+    resources :games
   end
   
   resources :platforms do
-    resources :games do
-      resources :categories, :game_modes
-    end
+    resources :games
   end
 
 
   resources :game_modes do
-    resources :games do
-      resources :categories, :platforms
-    end
+    resources :games 
   end
 
   resources :users

@@ -57,13 +57,13 @@ class App extends Component {
   }
 
   addPlatforms(game) {
-    return (this.state.games.length >= 98 && game.id <100) ? `Platforms: ${this.state.games[game.id-1].platforms.map(plats => ` ` + plats.platform_name)}` : ''
+    return (this.state.games.length >= 98) ? `Platforms: ${this.state.games[game.id-1].platforms.map(plats => ` ` + plats.platform_name)}` : ''
   }
   addGameModes(game) {
-    return (this.state.games.length >= 98 && game.id <100) ? `Game Modes: ${this.state.games[game.id-1].game_modes.map(gms => ` ` + gms.game_mode_name)}` : ''
+    return (this.state.games.length >= 98) ? `Game Modes: ${this.state.games[game.id-1].game_modes.map(gms => ` ` + gms.game_mode_name)}` : ''
   }
   addCategories(game) {
-    return (this.state.games.length >= 98 && game.id <100) ? `Categories: ${this.state.games[game.id-1].categories.map(cats => ` ` + cats.category_name)}` : ''
+    return (this.state.games.length >= 98) ? `Categories: ${this.state.games[game.id-1].categories.map(cats => ` ` + cats.category_name)}` : ''
   }
 
   choosePage() {

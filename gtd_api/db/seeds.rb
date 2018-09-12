@@ -53,10 +53,6 @@ require './db/game_data/game_part0.rb'
 # require './db/game_data/game_part41.rb'
 # require './db/game_data/game_part42.rb'
 
-Game.destroy_all
-Platform.destroy_all
-Category.destroy_all
-GameMode.destroy_all
 
 
 $game_part0.each do |game_data|

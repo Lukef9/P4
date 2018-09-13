@@ -109,9 +109,8 @@ export async function updateUser(user) {
   }
 }
 
-export async function destroyUser(id) {
+export  function destroyUser(id) {
   try {
-    debugger
     const opts = {
       method: 'DELETE',
       mode: 'cors',
@@ -119,8 +118,8 @@ export async function destroyUser(id) {
         'Content-Type': 'application/json',
       },
     };
-    const user = await fetch(`${BASE_URL}/users/${id}`, opts);
-    return user;
+    return fetch(`${BASE_URL}/users/${id}`, opts) 
+      .then(resp => resp.json())
   } catch (e) {
     throw (e);
   }

@@ -82,7 +82,7 @@ class App extends Component {
     this.setState({currentPage: 'edit'})
   }
   createUser(user) {
-    saveUser(user).then(fetchAllUsers().then(data => {
+    saveUser(user).then(() => fetchAllUsers().then(data => {
       this.setState({ 
         users:  data.users,
         currentPage: 'profile'
@@ -91,20 +91,20 @@ class App extends Component {
   }
 
   editUser(user) {
-    updateUser(user).then(fetchAllUsers().then(data => {
-      this.setState({ 
-        users:  data.users,
-        currentPage: 'profile'
-      })
-    }))
+    updateUser(user)
+    .then(() => fetchAllUsers())
+	  .then(data => this.setState({
+		users: data.users,
+		currentPage: 'profile'
+    }));
   }
   destroyUser(e) {
-    destroyUser(e.target.value).then(fetchAllUsers().then(data => {
+    destroyUser(e.target.value).then(() => fetchAllUsers()).then(data => {
       this.setState({ 
         users:  data.users,
         currentPage: 'profile'
       })
-    }))
+    })
   }
 
   choosePage() {

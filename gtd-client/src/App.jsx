@@ -39,6 +39,7 @@ class App extends Component {
     this.createUser = this.createUser.bind(this);
     this.editUser = this.editUser.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.destroyUser = this.destroyUser.bind(this);
   }
 
   componentDidMount() {
@@ -97,6 +98,14 @@ class App extends Component {
       })
     }))
   }
+  destroyUser(e) {
+    destroyUser(e.target.value).then(fetchAllUsers().then(data => {
+      this.setState({ 
+        users:  data.users,
+        currentPage: 'profile'
+      })
+    }))
+  }
 
   choosePage() {
     const { currentPage } = this.state;
@@ -125,6 +134,7 @@ class App extends Component {
       case 'profile':
         return <Users
         handleEdit = {this.handleEdit}
+        handleDestroy = {this.destroyUser}
         users = {this.state.users}
         />
       case 'login':

@@ -111,8 +111,10 @@ export async function updateUser(user) {
 
 export async function destroyUser(id) {
   try {
+    debugger
     const opts = {
       method: 'DELETE',
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
       },

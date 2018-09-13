@@ -69,8 +69,12 @@ class App extends Component {
     return (this.state.games.length >= 98) ? `Categories: ${this.state.games[game.id-1].categories.map(cats => ` ` + cats.category_name)}` : ''
   }
   createUser(user) {
-    saveUser(user);
-    this.setState({ currentPage: 'profile'})
+    saveUser(user).then(fetchAllUsers().then(data => {
+      this.setState({ 
+        users:  data.users,
+        currentPage: 'profile'
+      })
+    }))
   }
 
   choosePage() {

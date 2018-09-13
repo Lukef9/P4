@@ -9,13 +9,15 @@ import {
   destroyUser,
   updateUser,
   saveUser,
-  fetchAllGamesOnOnePlatform
 } from './services/api';
 import './App.css';
 import GamesByCat from './GamesByCat';
 import GamesByPlat from './GamesByPlat';
 import GamesByGameMode from './GamesByGameMode';
 import Header from './Header';
+import LoginForm from './LoginForm';
+import Users from './Users';
+import Register from './Register';
 
 class App extends Component {
   constructor(props) {
@@ -32,6 +34,7 @@ class App extends Component {
     this.addPlatforms = this.addPlatforms.bind(this);
     this.addCategories = this.addCategories.bind(this);
     this.toggleCurrentPage = this.toggleCurrentPage.bind(this);
+    this.createUser = this.createUser.bind(this);
   }
 
   componentDidMount() {
@@ -65,6 +68,10 @@ class App extends Component {
   addCategories(game) {
     return (this.state.games.length >= 98) ? `Categories: ${this.state.games[game.id-1].categories.map(cats => ` ` + cats.category_name)}` : ''
   }
+  createUser(user) {
+    saveUser(user);
+    this.setState({ currentPage: 'profile'})
+  }
 
   choosePage() {
     const { currentPage } = this.state;
@@ -89,6 +96,16 @@ class App extends Component {
         addGameModes = {this.addGameModes}
         addPlatforms = {this.addPlatforms}
         addCategories = {this.addCategories}
+        />
+      case 'profile':
+        return <Users
+        users = {this.state.users}
+        />
+      case 'login':
+        return <LoginForm />
+      case 'register':
+        return <Register
+        onSubmit = {this.createUser}
         />
     }
   }

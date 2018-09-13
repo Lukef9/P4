@@ -19,17 +19,6 @@ export async function fetchAllPlatforms() {
       }
 }
 
-export async function fetchAllGamesOnOnePlatform(id) {
-    try {
-      console.log('hello')
-        const games = await fetch(`${BASE_URL}/platforms/${id}/games`);
-        console.log('hi')
-        return games.json();
-      } catch (e) {
-        throw (e);
-      }
-}
-
 export async function fetchAllCategories() {
     try {
         const categories = await fetch(`${BASE_URL}/categories/`);
@@ -68,13 +57,26 @@ export async function fetchOneUser(id) {
 
 export async function saveUser(user) {
   try {
+    debugger
+    const newUser = {
+      data: {
+        attributes: {
+          username: user.username,
+          email: user.email,
+          password_digest: user.password_digest
+        }
+      }
+    }
     const opts = {
       method: 'POST',
-      body: JSON.stringify(user),
+      body: JSON.stringify(newUser),
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
     };
+    debugger
     const userData = await fetch(`${BASE_URL}/users`, opts);
     return userData.json();
   } catch (e) {

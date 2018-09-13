@@ -9,6 +9,8 @@ class UsersController < ApplicationController
   end
 
   def create
+    debugger
+    puts 'hello'
     @new_user1 = User.new(user_params)
     if @new_user1.save
       render json: { user: @new_user1 }

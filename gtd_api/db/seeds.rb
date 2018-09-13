@@ -56,7 +56,7 @@ require './db/game_data/game_part0.rb'
 
 
 $game_part0.each do |game_data|
-  if (game_data[:id] <= 1000)
+  if (game_data[:id] <= 1005)
     Game.create!(
       game_id: game_data[:id],
       game_name: game_data[:name],
@@ -64,7 +64,7 @@ $game_part0.each do |game_data|
     )
   end
 end
-
+debugger
 # $game_part1.each do |game_data|
 #   Game.create!(
 #     game_id: game_data[:id],

@@ -64,7 +64,7 @@ $game_part0.each do |game_data|
     )
   end
 end
-debugger
+
 # $game_part1.each do |game_data|
 #   Game.create!(
 #     game_id: game_data[:id],

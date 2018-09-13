@@ -18,6 +18,7 @@ import Header from './Header';
 import LoginForm from './LoginForm';
 import Users from './Users';
 import Register from './Register';
+import EditUser from './EditUser';
 
 class App extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class App extends Component {
       categories: [],
       gameModes: [],
       users: [],
+      currUser: {},
       currentPage: 'home',
     }
     this.addGameModes = this.addGameModes.bind(this);
@@ -35,6 +37,8 @@ class App extends Component {
     this.addCategories = this.addCategories.bind(this);
     this.toggleCurrentPage = this.toggleCurrentPage.bind(this);
     this.createUser = this.createUser.bind(this);
+    this.editUser = this.editUser.bind(this);
+    this.handleEdit = this.handleEdit.bind(this);
   }
 
   componentDidMount() {
@@ -68,8 +72,25 @@ class App extends Component {
   addCategories(game) {
     return (this.state.games.length >= 98) ? `Categories: ${this.state.games[game.id-1].categories.map(cats => ` ` + cats.category_name)}` : ''
   }
+  handleEdit(evt) {
+    evt.preventDefault();
+    const result = this.state.users.filter(user => user.id === parseInt(evt.target.value));
+    this.setState({
+      currUser: result[0]
+    })
+    this.setState({currentPage: 'edit'})
+  }
   createUser(user) {
     saveUser(user).then(fetchAllUsers().then(data => {
+      this.setState({ 
+        users:  data.users,
+        currentPage: 'profile'
+      })
+    }))
+  }
+
+  editUser(user) {
+    updateUser(user).then(fetchAllUsers().then(data => {
       this.setState({ 
         users:  data.users,
         currentPage: 'profile'
@@ -103,13 +124,20 @@ class App extends Component {
         />
       case 'profile':
         return <Users
+        handleEdit = {this.handleEdit}
         users = {this.state.users}
         />
       case 'login':
-        return <LoginForm />
+        return <LoginForm 
+        />
       case 'register':
         return <Register
         onSubmit = {this.createUser}
+        />
+      case 'edit':
+        return <EditUser
+        onSubmit = {this.editUser}
+        currUser = {this.state.currUser}
         />
     }
   }

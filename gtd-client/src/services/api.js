@@ -57,7 +57,6 @@ export async function fetchOneUser(id) {
 
 export async function saveUser(user) {
   try {
-    debugger
     const newUser = {
       data: {
         attributes: {
@@ -76,7 +75,6 @@ export async function saveUser(user) {
         'Accept': 'application/json'
       },
     };
-    debugger
     const userData = await fetch(`${BASE_URL}/users`, opts);
     return userData.json();
   } catch (e) {
@@ -86,14 +84,25 @@ export async function saveUser(user) {
 
 export async function updateUser(user) {
   try {
+    const newUser = {
+      data: {
+        attributes: {
+          username: user.username,
+          email: user.email,
+          password_digest: user.password_digest
+        }
+      }
+    }
     const opts = {
       method: 'PUT',
-      body: JSON.stringify(user),
+      body: JSON.stringify(newUser),
+      mode: 'cors',
       headers: {
         'Content-Type': 'application/json',
+        'Accept': 'application/json'
       },
     };
-    const userData = await fetch(`${BASE_URL}/users/${user.user_id}`, opts);
+    const userData = await fetch(`${BASE_URL}/users/${user.id}`, opts);
     return userData.json();
   } catch (e) {
     throw (e);

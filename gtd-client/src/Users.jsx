@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Users({users}) {
+function Users({users, handleEdit}) {
   return (
     <div>
     <h1>Current Users</h1> <br/>
@@ -11,6 +11,7 @@ function Users({users}) {
             <p>e-mail: {user.email} </p>
             <p>password: {user.password_digest} </p>
             </div>
+            <button onClick={(e)=>handleEdit(e)}  name="edit" value={user.id}>edit</button>
           </div>
       ))}
     </div>

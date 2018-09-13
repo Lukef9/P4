@@ -56,7 +56,7 @@ require './db/game_data/game_part0.rb'
 
 
 $game_part0.each do |game_data|
-  if (game_data[:id] <= 100)
+  if (game_data[:id] <= 1000)
     Game.create!(
       game_id: game_data[:id],
       game_name: game_data[:name],
@@ -441,14 +441,14 @@ plat_arr = []
 # $game_part0.length.times do |x|
 #   plat_arr.push$game_part0[x][:platforms]
 # end
-100.times do |x|
+1000.times do |x|
   plat_arr.push$game_part0[x][:platforms]
 end
 
 plat_arr.length.times do |game_plats_id|
   if plat_arr[game_plats_id] != nil
     plat_arr[game_plats_id].each do |ind_plat_id|
-      if game_plats_id <= 101 #limits to games with id <101
+      if game_plats_id <= 1001 #limits to games with id <1001
         Game.find(game_plats_id+1).platforms << Platform.where(platform_id: ind_plat_id)
       end
     end
@@ -461,14 +461,14 @@ cat_arr = []
 # $game_part0.length.times do |x|
 #   cat_arr.push$game_part0[x][:genres]
 # end
-100.times do |x|
+1000.times do |x|
   cat_arr.push$game_part0[x][:genres]
 end
 
 cat_arr.length.times do |game_cats_id|
   if cat_arr[game_cats_id] != nil
     cat_arr[game_cats_id].each do |ind_cat_id|
-      if game_cats_id <= 101 #limits to games with id <101
+      if game_cats_id <= 1001 #limits to games with id <1001
         Game.find(game_cats_id+1).categories << Category.where(category_id: ind_cat_id)
       end
     end
@@ -481,14 +481,14 @@ gm_arr = []
 # $game_part0.length.times do |x|
 #   gm_arr.push$game_part0[x][:game_modes]
 # end
-100.times do |x|
+1000.times do |x|
   gm_arr.push$game_part0[x][:game_modes]
 end
 
 gm_arr.length.times do |game_gms_id|
   if (gm_arr[game_gms_id] != nil)
     gm_arr[game_gms_id].each do |ind_gm_id|
-      if game_gms_id <= 101 #limits to games with id <101
+      if game_gms_id <= 1001 #limits to games with id <1001
         Game.find(game_gms_id+1).game_modes << GameMode.where(game_mode_id: ind_gm_id)
       end
     end

@@ -29,7 +29,7 @@ class App extends Component {
       gameModes: [],
       users: [],
       currUser: {},
-      currentPage: 'home',
+      currentPage: 'platform',
     }
     this.addGameModes = this.addGameModes.bind(this);
     this.addPlatforms = this.addPlatforms.bind(this);
@@ -64,13 +64,13 @@ class App extends Component {
   }
 
   addPlatforms(game) {
-    return (this.state.games.length >= 98) ? `Platforms: ${this.state.games[game.id-1].platforms.map(plats => ` ` + plats.platform_name)}` : ''
+    return (this.state.games.length >= 98) ? <div><strong><u>Platforms:</u></strong><br/>{this.state.games[game.id-1].platforms.map(plats => <div key={plats.id}> {plats.platform_name} <br/></div>)}</div> : ''
   }
   addGameModes(game) {
-    return (this.state.games.length >= 98) ? `Game Modes: ${this.state.games[game.id-1].game_modes.map(gms => ` ` + gms.game_mode_name)}` : ''
+    return (this.state.games.length >= 98) ? <div><strong><u>Game Modes:</u></strong><br/>{this.state.games[game.id-1].game_modes.map(gms => <div key={gms.id}> {gms.game_mode_name}<br/></div>)}</div>: ''
   }
   addCategories(game) {
-    return (this.state.games.length >= 98) ? `Categories: ${this.state.games[game.id-1].categories.map(cats => ` ` + cats.category_name)}` : ''
+    return (this.state.games.length >= 98) ? <div><strong><u>Categories: </u></strong><br/>{this.state.games[game.id-1].categories.map(cats => <div key={cats.id}> {cats.category_name}<br/></div>)}<br/></div> : ''
   }
   handleEdit(evt) {
     evt.preventDefault();

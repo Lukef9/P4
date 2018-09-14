@@ -109,7 +109,7 @@ export async function updateUser(user) {
   }
 }
 
-export  function destroyUser(id) {
+export async function destroyUser(id) {
   try {
     const opts = {
       method: 'DELETE',
@@ -118,8 +118,8 @@ export  function destroyUser(id) {
         'Content-Type': 'application/json',
       },
     };
-    return fetch(`${BASE_URL}/users/${id}`, opts) 
-      .then(resp => resp.json())
+    const user =  fetch(`${BASE_URL}/users/${id}`, opts);
+    return user;
   } catch (e) {
     throw (e);
   }

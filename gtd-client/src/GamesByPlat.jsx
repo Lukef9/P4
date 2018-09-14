@@ -9,12 +9,14 @@ function GamesByPlat({platforms, addGameModes, addPlatforms, addCategories}) {
           {
             platGames.games.map((game) => (
             <div key={game.id} className="grid-item">
-              Title: {game.game_name}
               <br/>
-              Rating: {game.rating}
-              <p>{addPlatforms(game)}</p>
-              <p>{addGameModes(game)}</p>
-              <p>{addCategories(game)}</p>
+              <strong><u>Title:</u></strong> <br/> {game.game_name}
+              <br/>
+              <br/>
+              <strong><u>Rating:</u></strong> <br/> {game.rating}
+              <div><br/>{addPlatforms(game)}</div>
+              <div><br/>{addGameModes(game)}</div>
+              <div><br/>{addCategories(game)}</div>
             </div>
             ))
           }
